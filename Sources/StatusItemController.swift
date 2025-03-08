@@ -16,6 +16,7 @@ import AppKit
 
 /// Controller for an `NSStatusItem`. Designed to be subclassed.
 /// - Warning: You must subclass this controller.
+@MainActor
 open class StatusItemController: NSObject, NSMenuDelegate {
 
     // MARK: Properties
@@ -32,6 +33,7 @@ open class StatusItemController: NSObject, NSMenuDelegate {
     public init(image: NSImage, length: CGFloat = NSStatusItem.squareLength) {
         self.statusItem = NSStatusBar.system.statusItem(withLength: length)
         super.init()
+        self.statusItem.button?.toolTip = Bundle.main.infoDictionary?["CFBundleName"] as? String
         self.statusItem.button?.image = image
         (self.statusItem.button?.cell as? NSButtonCell)?.highlightsBy = [NSCell.StyleMask.init(rawValue: 0)]
         self.statusItem.button?.target = self

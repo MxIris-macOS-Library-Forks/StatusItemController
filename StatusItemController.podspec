@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
    s.name = 'StatusItemController'
-   s.version = '1.2.0'
+   s.version = '2.0.1'
    s.license = 'MIT'
 
    s.summary = 'A "view controller" for menu bar Mac apps'
@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
    s.source_files = 'Sources/*.swift'
 
    s.swift_version = '5.9'
-
-   s.osx.deployment_target = '10.15'
-
+   s.osx.deployment_target = '11.0'
    s.requires_arc = true
 end
